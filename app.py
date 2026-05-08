@@ -25,7 +25,20 @@ for x in range(0,11):
     
     
     
-    
+
+
+st.title('sou eu ')
+
+# NOME
+
+st.caption('nome')
+
+# CURIOSIDADE
+
+st. text_input('hobbies')
+st.number_input('idade')
+st.number_input('Altura')
+            
     
     
     
