@@ -1,87 +1,93 @@
+
+# NOTAS DE ESTUDOS 
 import streamlit as st
-st.title('CADASTRO SIMPLES')
-
-nome = st.text_input('Nome:')
-idade = st.number_input('Idade:')
-email = st.text_input('E-mail:')
-altura = st.number_input('Altura')
-
-if st.button('cadastrar'):
-   st.success('pessoa cadastrada')
-    
-    
-    
-    
-#----------------------------------------------------
-
-#tabuada
+import pandas as pd
+from sklearn.linear_model import LinearRegression
 
 
-numero = st.number_input('numero:')
-for x in range(0,11):
-   calculo = x * numero
-   st.write(f'{x} x {numero} = {calculo} ')
-    
-    
-    
-    
+st.header('ANALISE DE NOTAS - PREVENDO')
+estudos = pd.DataFrame({
+'notas':[1,2,4,6,8,10],
+'horas':[2,4,5,7,9,10]
+})
 
 
-st.title('sou eu ')
+st.scatter_chart(estudos, x = 'horas', y= 'notas')
+modelo_escola = LinearRegression() 
+modelo_escola.fit(estudos[['horas']], estudos['notas'])
 
-# NOME
 
-st.caption('nome')
+h_estudo = st.slider('horas de estudos', 0,12,5)
+nota_final = modelo_escola.predict([[h_estudo]])
+print(nota_final)
 
-# CURIOSIDADE
 
-st. text_input('hobbies')
-st.number_input('idade')
-st.number_input('Altura')
-            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+st.metric(f'sua nota seria' ,f'{min(nota_final[0], 10.0):.1f}')
+
+
+# # import streamlit as st
+# import minha_funcao as ms
+
+
+# import streamlit as st
+
+
+# st.title('titulo')
+
+
+# ms.soma(10,20)
+# ms.soma(200,500)
+
+
+# estrutura de dados
+# espaço na memória da máquina
+
+
+# variavel   =  10
+# lista  =  [1,2,3]
+# dicionario =  {'a':10, 'b':20}
+# conjuntos =  {10,20,303,30}
+# tupla = (10,20,30,30)
 
 
 
+# estutra de fluxo de controle 
+# palavra_reserva condição
+
+
+# if 10 >2:
+#     print('é maior')
+
+
+# for i in range(10):
+#     print(i)
+
+
+# while 10 < 1:
+#     print('faça')    
+
+
+# try :
+
+
+# funções 
+# palavras ()
+# cria -  def nome ():
+# Ação 
+# função são nativas da lingugame 
+
+
+# print()
+# len()
+# input()
+# sum()
+# ....
 
 
 
+# def nome():
+#     print('teste')
 
 
-
-
-
-
-
+# nome()
 
